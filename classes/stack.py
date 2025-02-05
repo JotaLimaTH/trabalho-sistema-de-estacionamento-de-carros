@@ -8,8 +8,8 @@ class Stack:
         self.last = None
         self.size = 0
     
-    def append(self, node):
-        node = StackNode()
+    def append(self, data):
+        node = StackNode(data)
         if self.last is None:
             self.last = node
             self.size += 1
