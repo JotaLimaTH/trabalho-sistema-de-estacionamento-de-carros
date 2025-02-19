@@ -1,3 +1,13 @@
+import sys
+sys.path.append("./classes")
+
+from classes.Arvore import *
+from classes.carro import *
+from classes.queue import *
+from classes.stack import *
+
+filaDeEntrada = Queue()
+
 print("Bem vindo ao SECCOS: Sistema de Estacionamento de Carros Ozzy OSborne\n")
 
 while True:
