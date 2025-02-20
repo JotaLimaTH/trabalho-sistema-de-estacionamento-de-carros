@@ -7,6 +7,7 @@ from classes.queue import *
 from classes.stack import *
 
 filaDeEntrada = Queue()
+pilhaDeSaida = Stack()
 
 print("Bem vindo ao SECCOS: Sistema de Estacionamento de Carros Ozzy OSborne\n")
 
