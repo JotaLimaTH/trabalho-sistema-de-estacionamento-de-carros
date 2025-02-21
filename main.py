@@ -29,7 +29,22 @@ def adicionarCarroFila():
     #print(dadosCarroFila[0], dadosCarroFila[1])
 
     filaDeEntrada.append(dadosCarroFila)
-    print("Carro adicionado!")
+    print("Carro adicionado à fila de entrada.")
+
+def adicionarCarroPilha():
+    pointer = filaDeEntrada.first
+    if pointer is None:
+        print("Não há carros na fila para se adicionar na pilha.")
+        return
+    dataEHora = datetime.now()
+    dataEHora = dataEHora.strftime('%d/%m/%Y %H:%M')
+
+    dadosCarro = pointer.data
+    dadosCarro.tail.data = f"Momento de adição: {dataEHora}"
+    pilhaDeSaida.append(dadosCarro)
+    filaDeEntrada.remove()
+    print("Carro removido da fila de entrada e adicionado à pilha de estacionamento.")
+    
 
 def mostrarFila():
     posicaoFila = 1
@@ -60,6 +75,9 @@ while True:
     if escolha == 1:
         print("\n")
         adicionarCarroFila()
+    elif escolha == 2:
+        print("\n")
+        adicionarCarroPilha()
     elif escolha == 3:
         print("\n")
         mostrarFila()
