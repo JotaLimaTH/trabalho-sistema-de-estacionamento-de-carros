@@ -29,12 +29,12 @@ def adicionarCarroFila():
     #print(dadosCarroFila[0], dadosCarroFila[1])
 
     filaDeEntrada.append(dadosCarroFila)
-    print("Carro adicionado à fila de entrada.")
+    print("Carro adicionado à fila de entrada.\n")
 
 def adicionarCarroPilha():
     pointer = filaDeEntrada.first
     if pointer is None:
-        print("Não há carros na fila para se adicionar na pilha.")
+        print("Não há carros na fila para se adicionar na pilha.\n")
         return
     dataEHora = datetime.now()
     dataEHora = dataEHora.strftime('%d/%m/%Y %H:%M')
@@ -43,14 +43,35 @@ def adicionarCarroPilha():
     dadosCarro.tail.data = f"Momento de adição: {dataEHora}"
     pilhaDeSaida.append(dadosCarro)
     filaDeEntrada.remove()
-    print("Carro removido da fila de entrada e adicionado à pilha de estacionamento.")
+
+    placa = dadosCarro.head.data.placa
+    marcaModelo = f"{dadosCarro.head.data.marca} {dadosCarro.head.data.modelo}"
+    cor = dadosCarro.head.data.cor
+    print(f"Carro {marcaModelo} {cor} de placa {placa} removido da fila de entrada e adicionado à pilha de estacionamento.\n")
+
+def retirarCarroPilha():
+    pointer = pilhaDeSaida.last
+    if pointer is None:
+        print("A pilha está vazia.\n")
+        return
+    dadosCarro = pointer.data
+    placa = dadosCarro.head.data.placa
+    marcaModelo = f"{dadosCarro.head.data.marca} {dadosCarro.head.data.modelo}"
+    cor = dadosCarro.head.data.cor
+
+    pilhaDeSaida.remove()
+    print(f"Carro {marcaModelo} {cor} de placa {placa} removido da pilha de estacionamento.\n")
+
+    print("Gerando preço do estacionamento...\n")
+    arvoreDePreco = ArvoreValor()
+    arvoreDePreco.decidir_preco()
     
 
 def mostrarFila():
     posicaoFila = 1
     pointer = filaDeEntrada.first
     if pointer is None:
-        print("A fila está vazia.")
+        print("A fila está vazia.\n")
         return
     while pointer:
         dadosCarro = pointer.data
@@ -60,6 +81,20 @@ def mostrarFila():
         print(f"Posição na fila: {posicaoFila}\n{carro}\n{horaEData}\n")
         pointer = pointer.next
         posicaoFila += 1 
+def mostrarPilha():
+    posicaoPilha = 1
+    pointer = pilhaDeSaida.last
+    if pointer is None:
+        print("A pilha está vazia.\n")
+        return
+    while pointer:
+        dadosCarro = pointer.data
+        carro = dadosCarro.head.data
+        horaEData = dadosCarro.tail.data
+
+        print(f"Posição na pilha: {posicaoPilha}\n{carro}\n{horaEData}\n")
+        pointer = pointer.previous
+        posicaoPilha += 1 
 
 print("Bem vindo ao SECCOS: Sistema de Estacionamento de Carros Ozzy OSborne\n")
 
@@ -81,6 +116,14 @@ while True:
     elif escolha == 3:
         print("\n")
         mostrarFila()
+    elif escolha == 4:
+        print("\n")
+        mostrarPilha()
+    elif escolha == 5:
+        print("\n")
+        retirarCarroPilha()
     elif escolha == 6:
         print("\nSaindo...")
         exit()
+    else:
+        print("\nDigite uma escolha válida.\n")
