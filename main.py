@@ -9,6 +9,9 @@ from classes.stack import *
 filaDeEntrada = Queue()
 pilhaDeSaida = Stack()
 
+# def adicionarCarroFila():
+    
+
 print("Bem vindo ao SECCOS: Sistema de Estacionamento de Carros Ozzy OSborne\n")
 
 while True:
