@@ -25,10 +25,26 @@ def adicionarCarroFila():
 
     dadosCarroFila = DoubleLinkedList()
     dadosCarroFila.append(novoCarro)
-    dadosCarroFila.append("Momento de adição: {dataEHora}")
+    dadosCarroFila.append(f"Momento de adição: {dataEHora}")
+    #print(dadosCarroFila[0], dadosCarroFila[1])
 
     filaDeEntrada.append(dadosCarroFila)
-    
+    print("Carro adicionado!")
+
+def mostrarFila():
+    posicaoFila = 1
+    pointer = filaDeEntrada.first
+    if pointer is None:
+        print("A fila está vazia.")
+        return
+    while pointer:
+        dadosCarro = pointer.data
+        carro = dadosCarro.head.data
+        horaEData = dadosCarro.tail.data
+
+        print(f"Posição na fila: {posicaoFila}\n{carro}\n{horaEData}\n")
+        pointer = pointer.next
+        posicaoFila += 1 
 
 print("Bem vindo ao SECCOS: Sistema de Estacionamento de Carros Ozzy OSborne\n")
 
@@ -39,6 +55,14 @@ while True:
     print("3. Ver fila de entrada")
     print("4. Ver pilha de saída")
     print("5. Retirar carro em pilha e gerar preço")
+    print("6. Sair")
     escolha = int(input("Escolha: "))
     if escolha == 1:
+        print("\n")
         adicionarCarroFila()
+    elif escolha == 3:
+        print("\n")
+        mostrarFila()
+    elif escolha == 6:
+        print("\nSaindo...")
+        exit()

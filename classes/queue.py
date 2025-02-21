@@ -29,5 +29,5 @@ class Queue:
     def getQueue(self):
         pointer = self.first
         while pointer.next:
-            print(pointer)
+            print(pointer.data)
             pointer = pointer.next
