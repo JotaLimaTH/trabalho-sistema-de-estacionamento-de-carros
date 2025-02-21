@@ -10,5 +10,5 @@ class Carro:
         return f"Modelo: {self.modelo} \nPlaca: {self.placa} \nCor: {self.cor} \nAno: {self.ano} \nMarca: {self.marca} "
 
 # Só um teste
-carro1 = Carro(4002, "Fiat", "azul", "Mobi", 2023)
-print(carro1)
+#carro1 = Carro(4002, "Fiat", "azul", "Mobi", 2023)
+#print(carro1)

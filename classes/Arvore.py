@@ -46,5 +46,5 @@ class ArvoreValor:
             preco = max(10, total_horas * 5)
         print(f"Preço do estacionamento: R$ {preco},00")
 
-arvore = ArvoreValor()
-arvore.decidir_preco()
+#arvore = ArvoreValor()
+#arvore.decidir_preco()
