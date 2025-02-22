@@ -83,3 +83,10 @@ class DoubleLinkedList:
         node = DoubleLinkedListNode(elem)
         node.next = self.head
         self.head = node
+
+    def search(self, data):
+        pointer = self.head
+        while pointer is not None and pointer.data != data:
+            pointer = pointer.next
+        if pointer.data == data:
+            return pointer

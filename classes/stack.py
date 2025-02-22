@@ -31,3 +31,10 @@ class Stack:
         while pointer.previous:
             print(pointer)
             pointer = pointer.previous
+    
+    def search(self, data):
+        pointer = self.last
+        while pointer is not None and pointer.data != data:
+            pointer = pointer.previous
+        if pointer.data == data:
+            return pointer

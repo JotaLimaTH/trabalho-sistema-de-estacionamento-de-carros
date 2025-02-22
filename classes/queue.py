@@ -33,3 +33,10 @@ class Queue:
         while pointer.next:
             print(pointer.data)
             pointer = pointer.next
+
+    def search(self, data):
+        pointer = self.first
+        while pointer is not None and pointer.data != data:
+            pointer = pointer.next
+        if pointer.data == data:
+            return pointer
