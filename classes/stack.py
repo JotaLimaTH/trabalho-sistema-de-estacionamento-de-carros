@@ -2,6 +2,8 @@ class StackNode:
     def __init__(self, data):
         self.data = data
         self.previous = None
+    def __str__(self):
+        return self.data
 
 class Stack:
     def __init__(self):

@@ -3,6 +3,8 @@ class DoubleLinkedListNode:
         self.data = data
         self.next = None
         self.previous = None
+    def __str__(self):
+        return self.data
 
 class DoubleLinkedList:
     def __init__(self):
