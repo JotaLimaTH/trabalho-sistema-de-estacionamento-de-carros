@@ -94,7 +94,171 @@ def mostrarPilha():
 
         print(f"Posição na pilha: {posicaoPilha}\n{carro}\n{horaEData}\n")
         pointer = pointer.previous
-        posicaoPilha += 1 
+        posicaoPilha += 1
+def pesquisarCarro():
+    print("Digite por qual parâmetro você deseja pesquisar.\n")
+    print("1. Placa")
+    print("2. Marca")
+    print("3. Cor")
+    print("4. Modelo")
+    print("5. Ano")
+    print("6. Cancelar pesquisa.")
+    escolha = int(input("Digite sua escolha: "))
+
+    if escolha == 1:
+        posicaoFila = 0
+        posicaoPilha = 0
+        placa = input("Digite a placa do carro: ")
+        pointer = filaDeEntrada.first
+        if pointer is None:
+            pointer = pilhaDeSaida.last
+        if pointer is None:
+            print("A fila e a pilha estão vazias.\n")
+            return
+        while pointer:
+            dadosCarro = pointer.data
+            carro = dadosCarro.head.data
+            horaEData = dadosCarro.tail.data
+            if carro.placa == placa:
+                print(f"Encontrado na fila de entrada.\n\nPosição na fila: {posicaoFila}\n{carro}\n{horaEData}")
+                return
+            pointer = pointer.next
+            posicaoFila += 1
+        pointer = pilhaDeSaida.last
+        if pointer is None:
+            print("A pilha está vazia.")
+            return
+        while pointer:
+            dadosCarro = pointer.data
+            carro = dadosCarro.head.data
+            horaEData = dadosCarro.tail.data
+            if carro.placa == placa:
+                print(f"Encontrado na pilha de saída.\n\nPosição na fila: {posicaoPilha}\n{carro}\n{horaEData}")
+                return
+            pointer = pointer.previous
+            posicaoPilha += 1
+        print(f"Carro de placa {placa} não encontrado.")
+        return
+
+    elif escolha == 2:
+        posicaoFila = 0
+        posicaoPilha = 0
+        marca = input("Digite a marca do carro: ")
+        pointer = filaDeEntrada.first
+        if pointer is None:
+            pointer = pilhaDeSaida.last
+        if pointer is None:
+            print("A fila e a pilha estão vazias.\n")
+            return
+        while pointer:
+            dadosCarro = pointer.data
+            carro = dadosCarro.head.data
+            horaEData = dadosCarro.tail.data
+            if carro.marca == marca:
+                print(f"Encontrado na fila de entrada.\n\nPosição na fila: {posicaoFila}\n{carro}\n{horaEData}")
+            pointer = pointer.next
+            posicaoFila += 1
+        pointer = pilhaDeSaida.last
+        if pointer is None:
+            return
+        while pointer:
+            dadosCarro = pointer.data
+            carro = dadosCarro.head.data
+            horaEData = dadosCarro.tail.data
+            if carro.marca == marca:
+                print(f"Encontrado na pilha de saída.\n\nPosição na fila: {posicaoPilha}\n{carro}\n{horaEData}")
+            pointer = pointer.previous
+            posicaoPilha += 1
+        return
+    elif escolha == 3:
+        posicaoFila = 0
+        posicaoPilha = 0
+        cor = input("Digite a cor do carro: ")
+        pointer = filaDeEntrada.first
+        if pointer is None:
+            pointer = pilhaDeSaida.last
+        if pointer is None:
+            print("A fila e a pilha estão vazias.\n")
+            return
+        while pointer:
+            dadosCarro = pointer.data
+            carro = dadosCarro.head.data
+            horaEData = dadosCarro.tail.data
+            if carro.cor == cor:
+                print(f"Encontrado na fila de entrada.\n\nPosição na fila: {posicaoFila}\n{carro}\n{horaEData}")
+            pointer = pointer.next
+            posicaoFila += 1
+        pointer = pilhaDeSaida.last
+        if pointer is None:
+            return
+        while pointer:
+            dadosCarro = pointer.data
+            carro = dadosCarro.head.data
+            horaEData = dadosCarro.tail.data
+            if carro.cor == cor:
+                print(f"Encontrado na pilha de saída.\n\nPosição na fila: {posicaoPilha}\n{carro}\n{horaEData}")
+            pointer = pointer.previous
+            posicaoPilha += 1
+    elif escolha == 4:
+        posicaoFila = 0
+        posicaoPilha = 0
+        modelo = input("Digite o modelo do carro: ")
+        pointer = filaDeEntrada.first
+        if pointer is None:
+            pointer = pilhaDeSaida.last
+        if pointer is None:
+            print("A fila e a pilha estão vazias.\n")
+            return
+        while pointer:
+            dadosCarro = pointer.data
+            carro = dadosCarro.head.data
+            horaEData = dadosCarro.tail.data
+            if carro.modelo == modelo:
+                print(f"Encontrado na fila de entrada.\n\nPosição na fila: {posicaoFila}\n{carro}\n{horaEData}")
+            pointer = pointer.next
+            posicaoFila += 1
+        pointer = pilhaDeSaida.last
+        if pointer is None:
+            return
+        while pointer:
+            dadosCarro = pointer.data
+            carro = dadosCarro.head.data
+            horaEData = dadosCarro.tail.data
+            if carro.modelo == modelo:
+                print(f"Encontrado na pilha de saída.\n\nPosição na fila: {posicaoPilha}\n{carro}\n{horaEData}")
+            pointer = pointer.previous
+            posicaoPilha += 1
+    elif escolha == 5:
+        posicaoFila = 0
+        posicaoPilha = 0
+        ano = input("Digite o ano do carro: ") 
+        pointer = filaDeEntrada.first
+        if pointer is None:
+            pointer = pilhaDeSaida.last
+        if pointer is None:
+            print("A fila e a pilha estão vazias.\n")
+            return
+        while pointer:
+            dadosCarro = pointer.data
+            carro = dadosCarro.head.data
+            horaEData = dadosCarro.tail.data
+            if carro.ano == ano:
+                print(f"Encontrado na fila de entrada.\n\nPosição na fila: {posicaoFila}\n{carro}\n{horaEData}")
+            pointer = pointer.next
+            posicaoFila += 1
+        pointer = pilhaDeSaida.last
+        if pointer is None:
+            return
+        while pointer:
+            dadosCarro = pointer.data
+            carro = dadosCarro.head.data
+            horaEData = dadosCarro.tail.data
+            if carro.ano == ano:
+                print(f"Encontrado na pilha de saída.\n\nPosição na fila: {posicaoPilha}\n{carro}\n{horaEData}")
+            pointer = pointer.previous
+            posicaoPilha += 1
+    else:
+        return
 
 print("Bem vindo ao SECCOS: Sistema de Estacionamento de Carros Ozzy OSborne\n")
 
@@ -105,7 +269,8 @@ while True:
     print("3. Ver fila de entrada")
     print("4. Ver pilha de saída")
     print("5. Retirar carro em pilha e gerar preço")
-    print("6. Sair")
+    print("6. Pesquisar carro.")
+    print("7. Sair")
     escolha = int(input("Escolha: "))
     if escolha == 1:
         print("\n")
@@ -123,6 +288,9 @@ while True:
         print("\n")
         retirarCarroPilha()
     elif escolha == 6:
+        print("\n")
+        pesquisarCarro()
+    elif escolha == 7:
         print("\nSaindo...")
         exit()
     else:
